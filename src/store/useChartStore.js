@@ -32,7 +32,7 @@ export const useChartStore = create((set, get) => ({
 
   // Timeline Display & Controls
   zoom: 240, // pixels per second
-  snapDivision: 4, // 4 = 1/4 (quarter note), 8 = 1/8, 12 = 1/12, 16 = 1/16, 0 = free
+  snapDivision: 0, // 0 = Free Snap (No auto-correct)
   toolMode: 'select', // 'select' (default: click seeks & navigates) | 'draw' (click places note)
   metronomeEnabled: false,
   hitsoundsEnabled: true,
@@ -291,21 +291,14 @@ export const useChartStore = create((set, get) => ({
     set({ notes: quantized });
   },
 
-  // Live Tapping Management
+  // Live Tapping Management (Murni waktu nyata tanpa auto-correct/snap)
   startLiveTap: (lane) => {
-    const { currentTime, bpm, audioOffset, snapDivision, activeHoldNotes, addNote } = get();
+    const { currentTime, activeHoldNotes, addNote } = get();
     // Don't start another tap on this lane if already pressed
     if (activeHoldNotes[lane]) return;
 
-    // Optional snapping for live tap if snap is enabled and close
-    let tapTime = currentTime;
-    if (snapDivision > 0) {
-      const snapped = snapTimeToGrid(currentTime, bpm, audioOffset, snapDivision);
-      // Only snap if within 0.12s tolerance
-      if (Math.abs(snapped - currentTime) < 0.12) {
-        tapTime = snapped;
-      }
-    }
+    // Presisi murni: targetTime persis pada currentTime pemutaran lagu saat tombol ditekan
+    const tapTime = Math.max(0, currentTime);
 
     // Play hitsound immediately for instant auditory response
     audioManager.playHitsound(lane);

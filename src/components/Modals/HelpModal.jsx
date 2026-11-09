@@ -5,16 +5,17 @@ export default function HelpModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const shortcuts = [
-    { key: 'Space', desc: 'Play / Pause pemutaran musik' },
-    { key: 'F', desc: 'Tap note di Lane 0 (AIR) pada posisi playhead' },
-    { key: 'J', desc: 'Tap note di Lane 1 (GROUND) pada posisi playhead' },
-    { key: 'Tahan F / J', desc: 'Membuat Hold Note secara real-time selama tombol ditahan' },
+    { key: 'Space', desc: 'Play / Pause pemutaran audio' },
+    { key: 'F', desc: 'Tap note di Lane 0 (AIR) pada posisi playhead (berfungsi saat lagu jalan atau pause)' },
+    { key: 'J', desc: 'Tap note di Lane 1 (GROUND) pada posisi playhead (berfungsi saat lagu jalan atau pause)' },
+    { key: 'Tahan F / J', desc: 'Merekam Hold Note secara real-time saat musik berjalan' },
+    { key: 'V', desc: 'Mode Pilih (klik timeline menggeser playhead tanpa nambah note)' },
+    { key: 'B', desc: 'Mode Pensil (klik timeline untuk menaruh note manual)' },
+    { key: 'Double-Click', desc: 'Tambah note manual pada posisi kursor (snapped)' },
     { key: 'Delete / Backspace', desc: 'Hapus note yang sedang dipilih' },
     { key: 'Ctrl + Z', desc: 'Undo tindakan terakhir' },
     { key: 'Ctrl + Y', desc: 'Redo tindakan yang di-undo' },
     { key: 'Alt + Scroll', desc: 'Zoom in / Zoom out timeline horizontal' },
-    { key: 'Klik Grid', desc: 'Tambah note baru pada posisi kursor (snapped)' },
-    { key: 'Drag Ujung Note', desc: 'Ubah durasi note (otomatis jadi Hold Note)' },
     { key: 'Klik Kanan Note', desc: 'Hapus note langsung' }
   ];
 

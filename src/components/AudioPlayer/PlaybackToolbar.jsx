@@ -198,12 +198,12 @@ export default function PlaybackToolbar() {
             className="bg-transparent text-cyan-300 font-semibold text-xs font-mono focus:outline-none cursor-pointer"
             title="Grid Snapping Division"
           >
+            <option value="0" className="bg-daw-panel text-white">Free (No Snap)</option>
             <option value="4" className="bg-daw-panel text-white">1/4 (Beat)</option>
             <option value="8" className="bg-daw-panel text-white">1/8 (Half-Beat)</option>
             <option value="12" className="bg-daw-panel text-white">1/12 (Triplet)</option>
             <option value="16" className="bg-daw-panel text-white">1/16 (Quarter-Beat)</option>
             <option value="32" className="bg-daw-panel text-white">1/32 (32nd)</option>
-            <option value="0" className="bg-daw-panel text-white">Free (No Snap)</option>
           </select>
         </div>
 
@@ -247,14 +247,6 @@ export default function PlaybackToolbar() {
         >
           <Eye className={`w-3.5 h-3.5 ${followPlayhead ? 'text-emerald-400' : ''}`} />
           <span className="hidden lg:inline">Follow</span>
-        </button>
-      </div>
-              : 'bg-daw-panel border-daw-border text-slate-400 hover:text-slate-200'
-          }`}
-          title="Auto-scroll timeline mengikuti posisi pemutaran lagu"
-        >
-          <Eye className={`w-3.5 h-3.5 ${followPlayhead ? 'text-emerald-400' : ''}`} />
-          <span>Follow</span>
         </button>
       </div>
 

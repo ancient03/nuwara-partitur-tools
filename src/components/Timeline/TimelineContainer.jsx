@@ -127,13 +127,13 @@ export default function TimelineContainer() {
         <div className="flex-1 p-3 text-[10px] text-slate-500 flex flex-col justify-end space-y-1">
           <p className="flex items-center gap-1.5 text-slate-400">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span>Klik lane untuk tambah note</span>
+            <span>Tekan F untuk Air Note</span>
           </p>
           <p className="flex items-center gap-1.5 text-slate-400">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            <span>Tarik ujung untuk Hold note</span>
+            <span>Tekan J untuk Ground Note</span>
           </p>
-          <p className="text-slate-600 font-mono">Alt + Scroll untuk Zoom</p>
+          <p className="text-slate-600 font-mono">Tahan F/J untuk Hold Note</p>
         </div>
       </div>
 
